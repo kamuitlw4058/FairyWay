@@ -36,7 +36,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\Procedure\ProcedureBase.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\Procedure\ProcedureLaunch.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\Procedure\ProcedureUpdateResource.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\Procedure\ProcedureILRuntime.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\Procedure\ProcedureGetConfig.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\Procedure\ProcedureCheckVersion.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\GFEntry\GFEntry.Custom.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\GFEntry\GFEntry.cs" />
+     <Compile Include="Assets\GameMain\Scripts\Main\GFEntry\GFEntry.Builtin.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:\Unity\Editor\20210307\2021.3.7f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -300,6 +308,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
         <HintPath>D:\UnityProject\FairyWay\Library\PackageCache\com.unity.visualscripting@1.7.8\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+        <HintPath>D:\UnityProject\FairyWay\Assets\Plugins\GameFramework\Libraries\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>D:\Unity\Editor\20210307\2021.3.7f1c1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -849,6 +860,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="UnityGameFramework.Runtime.csproj">
+      <Project>{9cc1b379-2f2e-dedb-b67b-904fd8e4c667}</Project>
+      <Name>UnityGameFramework.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="GameFramework.csproj">
+      <Project>{7f598bec-b0d8-beec-9421-e2b92fc1a240}</Project>
+      <Name>GameFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityGameFramework.Editor.csproj">
+      <Project>{430c7108-e96a-7ba8-37e5-be894d4e9602}</Project>
+      <Name>UnityGameFramework.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

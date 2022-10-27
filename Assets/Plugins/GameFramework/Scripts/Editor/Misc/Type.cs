@@ -21,7 +21,7 @@ namespace UnityGameFramework.Editor
 #if UNITY_2017_3_OR_NEWER
             "UnityGameFramework.Runtime",
 #endif
-            "SteamClient.Main"
+            "FairyWay"
         };
 
         private static readonly string[] RuntimeOrEditorAssemblyNames =
@@ -33,7 +33,7 @@ namespace UnityGameFramework.Editor
 #if UNITY_2017_3_OR_NEWER
             "UnityGameFramework.Editor",
 #endif
-            "SteamClient.Editor"
+            "FairyWay"
         };
 
         /// <summary>
