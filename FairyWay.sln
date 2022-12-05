@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FairyWay.Plugins", "FairyWay.Plugins.csproj", "{1068c14a-d05e-605e-37d7-24213bee9038}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameFramework", "GameFramework.csproj", "{7f598bec-b0d8-beec-9421-e2b92fc1a240}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityGameFramework.Runtime", "UnityGameFramework.Runtime.csproj", "{9cc1b379-2f2e-dedb-b67b-904fd8e4c667}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FairyWay.Plugins", "FairyWay.Plugins.csproj", "{1068c14a-d05e-605e-37d7-24213bee9038}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FairyWay", "FairyWay.csproj", "{172dad39-3e74-75ca-5716-55c2b9a90551}"
 EndProject
@@ -22,12 +22,12 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1068c14a-d05e-605e-37d7-24213bee9038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1068c14a-d05e-605e-37d7-24213bee9038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7f598bec-b0d8-beec-9421-e2b92fc1a240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7f598bec-b0d8-beec-9421-e2b92fc1a240}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9cc1b379-2f2e-dedb-b67b-904fd8e4c667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9cc1b379-2f2e-dedb-b67b-904fd8e4c667}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1068c14a-d05e-605e-37d7-24213bee9038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1068c14a-d05e-605e-37d7-24213bee9038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{172dad39-3e74-75ca-5716-55c2b9a90551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{172dad39-3e74-75ca-5716-55c2b9a90551}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ca010abd-284e-a97d-ee66-357034a13609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

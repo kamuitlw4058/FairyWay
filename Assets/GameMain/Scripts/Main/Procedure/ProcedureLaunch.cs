@@ -17,30 +17,28 @@ namespace FairyWay.Main
             //设置帧率
             Application.targetFrameRate = 60;
         
-        
             //json
             InitJsonConverter();
-        #if STEAM_CLIENT
 
             //debug
             InitDebugger();
-            
-            //初始化适配组件
-            GameEntry.Adaptation.Init();
-            
-            ChangeState<ProcedureGetConfig>(procedureOwner);
+            #if STEAM_CLIENT
+                //初始化适配组件
+                GameEntry.Adaptation.Init();
+                
+                ChangeState<ProcedureGetConfig>(procedureOwner);
 
-            GRoot.inst.SetContentScaleFactor(Screen.width, Screen.height, ScreenMatchMode.MatchWidthOrHeight);
-         #endif
+                GRoot.inst.SetContentScaleFactor(Screen.width, Screen.height, ScreenMatchMode.MatchWidthOrHeight);
+            #endif
         }
-        #if STEAM_CLIENT
-            private void InitDebugger()
-            {
-                GameEntry.Debugger.ActiveWindow = GameEntry.Setting.GetBool(Constant.Setting.Debugger, false);
-                GameEntry.Debugger.WindowScale = 2.0f;
-            }
-          #endif
-        
+        private void InitDebugger()
+        {
+            Debug.Log($"GFEntry.Debugger:{GFEntry.Debugger}");
+            Debug.Log($"GFEntry.Setting:{GFEntry.Setting}");
+            GFEntry.Debugger.ActiveWindow = GFEntry.Setting.GetBool(Constant.Setting.Debugger, false);
+            GFEntry.Debugger.WindowScale = 2.0f;
+        }
+    
         private void InitJsonConverter()
         {
             //初始化LitJson
