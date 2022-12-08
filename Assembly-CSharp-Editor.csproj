@@ -37,6 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets/GameMain/Scripts/Editor/ToolWindow/BuildToolEditor.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Utils/PlatformUtils.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Constant/CommonConstant.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.5f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

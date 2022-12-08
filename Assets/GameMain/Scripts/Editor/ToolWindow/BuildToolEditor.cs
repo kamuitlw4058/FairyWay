@@ -43,13 +43,13 @@ namespace FairyWay.Editor
                 return;
             }
 
-            SwitchMainScene();
+            PlatformUtils.SwitchMainScene();
             var window = GetWindow<BuildToolEditor>();
             window.position = GUIHelper.GetEditorWindowRect().AlignCenter(800, 700);
             window.titleContent = new GUIContent("打包面板");
             window.Show();
             window.SelectPlatform = window.GetCurrentPlatform();
-            // window.InitGameFrameworkData();
+            window.InitGameFrameworkData();
         }
 
 
@@ -58,17 +58,11 @@ namespace FairyWay.Editor
 
         public ValueDropdownList<Platform> GetAllSupportPlatform()
         {
-            return new ValueDropdownList<Platform> { Platform.Android, Platform.Windows64, Platform.IOS};
+            return  PlatformUtils.GetAllSupportPlatform();
         }
 
 
-        private static void SwitchMainScene()
-        {
-            if (SceneManager.GetActiveScene().name != "Client")
-            {
-                EditorSceneManager.OpenScene("Assets/GameMain/Scenes/Client.unity");
-            }
-        }
+
 
         private Platform GetCurrentPlatform()
         {
@@ -166,46 +160,98 @@ namespace FairyWay.Editor
             m_LastBuildName = "Client" + m_LastBuildVersion + '_' + ServerPlatform + '_' + DateTime.Now.ToFileTime();
         }
 
+        private void SwitchPlatform()
+        {
+            if (SelectPlatform == GetCurrentPlatform())
+            {
+                return;
+            }
+
+            switch (SelectPlatform)
+            {
+                case Platform.Android:
+                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
+                    break;
+                case Platform.Windows64:
+                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64);
+                    break;
+                case Platform.MacOS:
+                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
+                    break;
+                case Platform.IOS:
+                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.iOS, BuildTarget.iOS);
+                    break;
+            }
+        }
 
 
-        // private void BuildGamePackage(string path, bool isBat = false, bool buildAb = false)
-        // {
-        //     if (string.IsNullOrEmpty(path))
-        //     {
-        //         return;
-        //     }
 
-        //     BindSpriteAtlasAndCancelOverride();
-        //     SwitchPlatform();
-        //     SwitchMainScene();
-        //     SetGameFrameworkData();
-        //     SetSymbol();
-        //     BindScript();
-        //     CriFileSystemHelper.BuildCpk();
-        //     var errorMsg = HotfixHelper.BuildHotfixReleaseDll();
-        //     if (!string.IsNullOrEmpty(errorMsg))
-        //     {
-        //         m_FailureData = string.Empty;
-        //         CollectFailureData(errorMsg);
-        //         WriteFailureData();
-        //         throw new Exception("Build dll failed");
-        //     }
+        private void BuildGamePackage(string path, bool isBat = false, bool buildAb = false)
+        {
+            if (string.IsNullOrEmpty(path))
+            {
+                return;
+            }
 
-        //     AssetDatabase.Refresh();
-        //     if (!BuildResourceRule())
-        //     {
-        //         throw new Exception("Build resource failed");
-        //     }
+            // BindSpriteAtlasAndCancelOverride();
+            SwitchPlatform();
+            PlatformUtils.SwitchMainScene();
+            SetGameFrameworkData();
+            // SetSymbol();
+            // BindScript();
+            // CriFileSystemHelper.BuildCpk();
+            // var errorMsg = HotfixHelper.BuildHotfixReleaseDll();
+            // if (!string.IsNullOrEmpty(errorMsg))
+            // {
+            //     m_FailureData = string.Empty;
+            //     CollectFailureData(errorMsg);
+            //     WriteFailureData();
+            //     throw new Exception("Build dll failed");
+            // }
 
-        //     BuildAssetBundlesByResourceBuilder();
-        //     if (buildAb)
-        //     {
-        //         WriteAbInfo();
-        //         return;
-        //     }
+            // AssetDatabase.Refresh();
+            // if (!BuildResourceRule())
+            // {
+            //     throw new Exception("Build resource failed");
+            // }
 
-        //     BuildGame(path, isBat);
-        // }
+            // BuildAssetBundlesByResourceBuilder();
+            // if (buildAb)
+            // {
+            //     WriteAbInfo();
+            //     return;
+            // }
+
+            // BuildGame(path, isBat);
+        }
+
+        // 从场景中获取到服务器相关的信息。
+        private void InitGameFrameworkData()
+        {
+            // var scene = SceneManager.GetActiveScene();
+            // var gameEntry = scene.GetRootGameObjects().ToList().Find(g => g.name == "GameEntry");
+            // var builtinData = gameEntry.transform.Find("Customs/BuiltinData").GetComponent<BuiltinDataComponent>();
+            // var resource = gameEntry.transform.Find("GameFramework/Resource").GetComponent<ResourceComponent>();
+            // ServerURL = builtinData.ServerUrl;
+            // ServerPlatform = builtinData.BuiltinPlatform;
+            // BuildWith37 = HasSymbolInPlatform(SelectPlatform, SYMBOL_ANDROID_37);
+            // ResourceMode = resource.m_ResourceMode;
+        }
+
+        // 设置服务器相关信息并保存。
+        private void SetGameFrameworkData()
+        {
+            // var scene = SceneManager.GetActiveScene();
+            // var gameEntry = scene.GetRootGameObjects().ToList().Find(g => g.name == "GameEntry");
+            // var builtinData = gameEntry.transform.Find("Customs/BuiltinData").GetComponent<BuiltinDataComponent>();
+            // builtinData.ServerUrl = ServerURL;
+            // builtinData.BuiltinPlatform = ServerPlatform;
+            // var resource = gameEntry.transform.Find("GameFramework/Resource").GetComponent<ResourceComponent>();
+            // resource.m_ResourceMode = ResourceMode;
+            // EditorUtility.SetDirty(resource);
+            // EditorSceneManager.SaveScene(scene);
+        }
+
 
     }
 }
