@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <ResourceBuilder>
+    <Settings>
+      <InternalResourceVersion>1</InternalResourceVersion>
+      <Platforms>32</Platforms>
+      <AssetBundleCompression>1</AssetBundleCompression>
+      <CompressionHelperTypeName>UnityGameFramework.Runtime.DefaultCompressionHelper</CompressionHelperTypeName>
+      <AdditionalCompressionSelected>False</AdditionalCompressionSelected>
+      <ForceRebuildAssetBundleSelected>False</ForceRebuildAssetBundleSelected>
+      <BuildEventHandlerTypeName>
+      </BuildEventHandlerTypeName>
+      <OutputDirectory>/Users/kimi/UnityProject/Kimi/FairyWay/ABs</OutputDirectory>
+      <OutputPackageSelected>True</OutputPackageSelected>
+      <OutputFullSelected>False</OutputFullSelected>
+      <OutputPackedSelected>False</OutputPackedSelected>
+    </Settings>
+  </ResourceBuilder>
+</UnityGameFramework>

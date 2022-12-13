@@ -771,23 +771,28 @@
     <Reference Include="netstandard">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.5f1c1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/netstandard.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Mathematics">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.TestRunner">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TestRunner">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.Mathematics.csproj">
+      <Project>{8cdd28d8-9157-01cc-186c-bb08b33d47b4}</Project>
+      <Name>Unity.Mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{b34b817e-e707-4ba9-363b-9a919a1d3fad}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{efe39cae-d9f3-dc71-0046-84a299bc1409}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.TestRunner.csproj">
+      <Project>{69d78e54-f35a-d677-eaf4-db273349ea55}</Project>
+      <Name>UnityEditor.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{68725045-dc70-556b-0a1d-7e17faf94dad}</Project>
+      <Name>UnityEngine.TestRunner</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

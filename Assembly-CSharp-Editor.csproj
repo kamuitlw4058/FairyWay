@@ -36,9 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/GameMain/Scripts/Editor/ToolWindow/BuildToolEditor.cs" />
-     <Compile Include="Assets/GameMain/Scripts/Editor/Utils/PlatformUtils.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/ResourceBuilderHelper.cs" />
      <Compile Include="Assets/GameMain/Scripts/Editor/Constant/CommonConstant.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/BuildToolEditor.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Utils/PlatformUtils.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.5f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -771,232 +772,231 @@
     <Reference Include="netstandard">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.5f1c1/Unity.app/Contents/UnityReferenceAssemblies/unity-4.8-api/Facades/netstandard.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.TestRunner">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.TestRunner">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEngineBridge.001">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Notifications">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Notifications.dll</HintPath>
-    </Reference>
-    <Reference Include="PsdPlugin">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Samsung.Android.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.Samsung.Android.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.IK.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Path.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Notifications.iOS">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Notifications.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.IK.Runtime">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Notifications.Android">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Notifications.Android.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Profiling.Core">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Profiling.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Simulator.Extension">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.Extension.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="ILRuntime">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/ILRuntime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Psdimporter.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEditorBridge.001">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Subsystem.Registration">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.UI.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.UI.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Simulator.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Analytics">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Services.Core.Environments">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Services.Core.Environments.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Runtime">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Runtime">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Profiler.Editor">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.Profiler.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Simulator.VRR.Extension">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.Simulator.VRR.Extension.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.AdaptivePerformance.Samsung.Android">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.AdaptivePerformance.Samsung.Android.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="UnityEditor.TestRunner.csproj">
+      <Project>{69d78e54-f35a-d677-eaf4-db273349ea55}</Project>
+      <Name>UnityEditor.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{68725045-dc70-556b-0a1d-7e17faf94dad}</Project>
+      <Name>UnityEngine.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
+      <Project>{71188556-02e3-5b20-5845-c6e3adef497a}</Project>
+      <Name>Unity.InternalAPIEngineBridge.001</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VSCode.Editor.csproj">
+      <Project>{5d08d868-8630-6600-7d34-0e0e2cb5b926}</Project>
+      <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.PixelPerfect.csproj">
+      <Project>{2f6b5834-7f7e-e1ca-aabc-c19fd35b5402}</Project>
+      <Name>Unity.2D.PixelPerfect</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Notifications.csproj">
+      <Project>{4170ff1d-5383-f24d-4f33-79e8393fd31a}</Project>
+      <Name>Unity.Notifications</Name>
+    </ProjectReference>
+    <ProjectReference Include="PsdPlugin.csproj">
+      <Project>{b6909fee-92a1-b907-582b-306b310d3a5e}</Project>
+      <Name>PsdPlugin</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{f71e23dd-f180-2c02-b0b3-1721e1debb47}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Performance.Profile-Analyzer.Editor.csproj">
+      <Project>{92ab3537-9a32-7f7f-668a-68b37ff2d6c7}</Project>
+      <Name>Unity.Performance.Profile-Analyzer.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.csproj">
+      <Project>{8958dc7a-abeb-234d-77f8-2f44243592f0}</Project>
+      <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.Samsung.Android.Editor.csproj">
+      <Project>{a90b6aed-8822-0143-02d2-6fae725547c9}</Project>
+      <Name>Unity.AdaptivePerformance.Samsung.Android.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.State.Editor.csproj">
+      <Project>{a7e1d953-e9da-f607-f8a4-e1c9c01fd2ba}</Project>
+      <Name>Unity.VisualScripting.State.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityGameFramework.Editor.csproj">
       <Project>{430c7108-e96a-7ba8-37e5-be894d4e9602}</Project>
       <Name>UnityGameFramework.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.IK.Editor.csproj">
+      <Project>{25f7f6d8-4c55-2248-690f-62ea54ff0b61}</Project>
+      <Name>Unity.2D.IK.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Path.Editor.csproj">
+      <Project>{af752cbd-fed9-360b-83ed-207fff80efab}</Project>
+      <Name>Unity.2D.Path.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.SettingsProvider.Editor.csproj">
+      <Project>{3d819849-358f-cccd-aea2-6e9aa8d1fc09}</Project>
+      <Name>Unity.VisualScripting.SettingsProvider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.csproj">
+      <Project>{e3edb632-9384-a471-dba1-53a709cccf7f}</Project>
+      <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{b34b817e-e707-4ba9-363b-9a919a1d3fad}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Rider.Editor.csproj">
+      <Project>{038cb30b-6764-2500-347b-ea864f0af5b1}</Project>
+      <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.Modules.UnityMathematics.csproj">
       <Project>{d7de30a2-d7ee-7806-3c29-51e92feccd67}</Project>
       <Name>Sirenix.OdinInspector.Modules.UnityMathematics</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{efe39cae-d9f3-dc71-0046-84a299bc1409}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj">
       <Project>{067b423e-754e-cdce-6d84-18ecc7aedb64}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Notifications.iOS.csproj">
+      <Project>{ef8dc08b-11e1-eac4-a674-05f3b331f8e8}</Project>
+      <Name>Unity.Notifications.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.EditorCoroutines.Editor.csproj">
+      <Project>{5295ab34-f029-c576-fa8b-841ceb152610}</Project>
+      <Name>Unity.EditorCoroutines.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.IK.Runtime.csproj">
+      <Project>{a7c947ba-7e61-a569-7d33-f407208f3f9d}</Project>
+      <Name>Unity.2D.IK.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.Editor.csproj">
+      <Project>{d50efc5a-c585-905f-5e2b-b09c7d7629cc}</Project>
+      <Name>Unity.AdaptivePerformance.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Mathematics.Editor.csproj">
+      <Project>{b7308fd1-7d56-fbc9-2957-61ba9aedc4a8}</Project>
+      <Name>Unity.Mathematics.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.csproj">
+      <Project>{c3d60c54-6aac-483b-7a5f-c8b22966c0bd}</Project>
+      <Name>Unity.AdaptivePerformance</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Notifications.Android.csproj">
+      <Project>{8aa974e2-2bfc-d4ed-b876-7f43fb548cb0}</Project>
+      <Name>Unity.Notifications.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Common.Editor.csproj">
+      <Project>{b8a9eb8a-66ff-b560-56ca-62b1baca9bcf}</Project>
+      <Name>Unity.2D.Common.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="GameFramework.csproj">
       <Project>{7f598bec-b0d8-beec-9421-e2b92fc1a240}</Project>
       <Name>GameFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Flow.Editor.csproj">
+      <Project>{ec4d0c4f-f7fc-9c91-3035-9c20832f8bba}</Project>
+      <Name>Unity.VisualScripting.Flow.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
+      <Project>{fab3a576-2123-158c-2028-e37a9d9d097b}</Project>
+      <Name>Unity.2D.Tilemap.Extras</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Editor.csproj">
+      <Project>{7f116cd1-5807-374f-ce4a-cb86fc564882}</Project>
+      <Name>Unity.2D.Animation.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Tilemap.Editor.csproj">
+      <Project>{4a1bd1bf-7652-a6c8-4c9f-2144cdfae811}</Project>
+      <Name>Unity.2D.Tilemap.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
+      <Project>{922160cf-4df2-c858-21db-5a7daba8a34d}</Project>
+      <Name>Unity.VisualStudio.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Profiling.Core.csproj">
+      <Project>{fe1db8d7-c8c4-aee8-a6a0-84d311d98f3f}</Project>
+      <Name>Unity.Profiling.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.csproj">
+      <Project>{c6787257-ab1c-443f-b35c-a0b48afe6c06}</Project>
+      <Name>Unity.Timeline</Name>
+    </ProjectReference>
     <ProjectReference Include="Sirenix.OdinInspector.CompatibilityLayer.csproj">
       <Project>{ca010abd-284e-a97d-ee66-357034a13609}</Project>
       <Name>Sirenix.OdinInspector.CompatibilityLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{3e3900f4-d158-3b4a-9fa3-ad2cbe7c9ac0}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Core.Editor.csproj">
+      <Project>{cc1bbc12-1140-3825-ea83-e3ca244827c6}</Project>
+      <Name>Unity.VisualScripting.Core.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.Simulator.Extension.csproj">
+      <Project>{ceb4fb9b-d0aa-e2e0-91ba-e0a80fa152cf}</Project>
+      <Name>Unity.AdaptivePerformance.Simulator.Extension</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Burst.Editor.csproj">
+      <Project>{6211022c-84c8-58ee-bd80-8e60250f3a89}</Project>
+      <Name>Unity.Burst.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="ILRuntime.csproj">
+      <Project>{d09ce66b-dbcb-8039-7cbe-609f74f65f39}</Project>
+      <Name>ILRuntime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{e6a8ba2a-cfc1-1884-73e6-f46a6dda3bd2}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Psdimporter.Editor.csproj">
+      <Project>{fee17b84-03ab-a7cd-be9c-d9f1e103350d}</Project>
+      <Name>Unity.2D.Psdimporter.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
+      <Project>{98b2b212-8a13-aab8-458c-55b4fcd6f4da}</Project>
+      <Name>Unity.InternalAPIEditorBridge.001</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Subsystem.Registration.csproj">
+      <Project>{230abc5c-0d71-8855-58a0-66d41b0d8d18}</Project>
+      <Name>Unity.Subsystem.Registration</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.UI.Editor.csproj">
+      <Project>{ce45ab10-828e-e5b1-f221-6deb2ef0aec0}</Project>
+      <Name>Unity.AdaptivePerformance.UI.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
+      <Project>{c467be1d-fb50-7d3e-4ac9-a7b6ea35207f}</Project>
+      <Name>Unity.VisualScripting.Flow</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
+      <Project>{ef6dc12e-5931-9e45-7f01-328c7181f6ea}</Project>
+      <Name>Unity.PlasticSCM.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Tilemap.Extras.Editor.csproj">
+      <Project>{4c616228-3a98-53ed-8898-fb20cc10ecf3}</Project>
+      <Name>Unity.2D.Tilemap.Extras.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="FairyWay.csproj">
       <Project>{172dad39-3e74-75ca-5716-55c2b9a90551}</Project>
       <Name>FairyWay</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.csproj">
+      <Project>{b2517418-e10b-3154-7ff0-94fa4ebf5141}</Project>
+      <Name>Unity.Services.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Core.csproj">
+      <Project>{e8bc0d24-2394-8b79-168a-b11236667d22}</Project>
+      <Name>Unity.VisualScripting.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Mathematics.csproj">
+      <Project>{8cdd28d8-9157-01cc-186c-bb08b33d47b4}</Project>
+      <Name>Unity.Mathematics</Name>
     </ProjectReference>
     <ProjectReference Include="FairyWay.Plugins.csproj">
       <Project>{1068c14a-d05e-605e-37d7-24213bee9038}</Project>
@@ -1005,6 +1005,74 @@
     <ProjectReference Include="UnityGameFramework.Runtime.csproj">
       <Project>{9cc1b379-2f2e-dedb-b67b-904fd8e4c667}</Project>
       <Name>UnityGameFramework.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.Simulator.Editor.csproj">
+      <Project>{c08e0766-9753-f0de-95c8-cbe7251bb927}</Project>
+      <Name>Unity.AdaptivePerformance.Simulator.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Analytics.csproj">
+      <Project>{61392165-468d-6838-6c4f-7dd6113e371d}</Project>
+      <Name>Unity.Services.Core.Analytics</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Burst.csproj">
+      <Project>{8f418fe9-20f2-03dd-f09e-da66bf3385f7}</Project>
+      <Name>Unity.Burst</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Shared.Editor.csproj">
+      <Project>{615e6fc3-21fc-f455-1b54-4df20b3c2795}</Project>
+      <Name>Unity.VisualScripting.Shared.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Services.Core.Environments.csproj">
+      <Project>{6abc5db5-70e6-8866-8789-ff620f5b33c7}</Project>
+      <Name>Unity.Services.Core.Environments</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
+      <Project>{ce67d48b-06bc-4857-8d4e-052be8a19b07}</Project>
+      <Name>Unity.2D.Animation.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.PixelPerfect.Editor.csproj">
+      <Project>{3888d02c-a24f-1088-afdf-fe8bd2dbc10a}</Project>
+      <Name>Unity.2D.PixelPerfect.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Mobile.AndroidLogcat.Editor.csproj">
+      <Project>{042888b5-5332-ec77-6eea-e4d10d456ad2}</Project>
+      <Name>Unity.Mobile.AndroidLogcat.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.Editor.csproj">
+      <Project>{af507c03-b549-88d0-fa14-04cc57a03ea2}</Project>
+      <Name>Unity.Timeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
+      <Project>{561aa100-2560-a1ab-000e-6516f463c0ba}</Project>
+      <Name>Unity.2D.Common.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.SpriteShape.Editor.csproj">
+      <Project>{3c65e2a0-589f-e91e-93ad-7b3a3a78f40d}</Project>
+      <Name>Unity.2D.SpriteShape.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.csproj">
+      <Project>{206fc5c0-c421-c465-18ae-d3b40599cd78}</Project>
+      <Name>Unity.TestTools.CodeCoverage.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.Profiler.Editor.csproj">
+      <Project>{d72b66b8-d36b-e2c8-4886-ceab454f8141}</Project>
+      <Name>Unity.AdaptivePerformance.Profiler.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.Simulator.VRR.Extension.csproj">
+      <Project>{2cd06774-ff14-68a9-dfdc-1f59e749cb27}</Project>
+      <Name>Unity.AdaptivePerformance.Simulator.VRR.Extension</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
+      <Project>{2a3c1c85-6e77-a6b2-7c1a-39b014c5a9a1}</Project>
+      <Name>Unity.2D.SpriteShape.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.State.csproj">
+      <Project>{78578360-e19f-4fdc-5830-32842bc86ee5}</Project>
+      <Name>Unity.VisualScripting.State</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.AdaptivePerformance.Samsung.Android.csproj">
+      <Project>{3cb9d9b6-1bab-659e-49e5-3721a4dd56df}</Project>
+      <Name>Unity.AdaptivePerformance.Samsung.Android</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

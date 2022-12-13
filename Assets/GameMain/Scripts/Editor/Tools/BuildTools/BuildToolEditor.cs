@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEditor;
-using UnityEditor.SceneManagement;
-
+using FairyWay.Main;
+using GameFramework.Resource;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities;
 using Sirenix.Utilities.Editor;
-
-
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityGameFramework.Editor.ResourceTools;
 using UnityGameFramework.Runtime;
 
@@ -23,8 +21,13 @@ namespace FairyWay.Editor
     public class BuildToolEditor : OdinEditorWindow
     {
 
-        [LabelText("选择平台")] [ValueDropdown("GetAllSupportPlatform")]
+        [LabelText("选择平台")]
+        [ValueDropdown("GetAllSupportPlatform")]
         public Platform SelectPlatform;
+
+        [LabelText("资源模式")]
+        [ValueDropdown("ResourceModeDropdown")]
+        public ResourceMode ResourceMode;
 
         private string m_LastBuildName;
         private string m_LastBuildVersion;
@@ -32,9 +35,14 @@ namespace FairyWay.Editor
         [LabelText("构建平台名")] //[ValueDropdown("ServerPlatformDropdown")]
         public string ServerPlatform;
 
+        public ValueDropdownList<ResourceMode> ResourceModeDropdown()
+        {
+            return new ValueDropdownList<ResourceMode> { ResourceMode.Package, ResourceMode.Updatable };
+        }
 
 
-        
+
+
         [MenuItem("FallenWing/打包汇总", false, 6)]
         public static void ShowWindow()
         {
@@ -53,12 +61,12 @@ namespace FairyWay.Editor
         }
 
 
-     
+
 
 
         public ValueDropdownList<Platform> GetAllSupportPlatform()
         {
-            return  PlatformUtils.GetAllSupportPlatform();
+            return PlatformUtils.GetAllSupportPlatform();
         }
 
 
@@ -156,7 +164,7 @@ namespace FairyWay.Editor
             // m_LastBuildVersion = PlayerSettings.bundleVersion.Replace('.', '_') + "_" +
             //                      ResourceBuilderHelper.GetResourceBuilderController().InternalResourceVersion;
             m_LastBuildVersion = "1";
-            ServerPlatform= "local";
+            ServerPlatform = "local";
             m_LastBuildName = "Client" + m_LastBuildVersion + '_' + ServerPlatform + '_' + DateTime.Now.ToFileTime();
         }
 
@@ -198,8 +206,11 @@ namespace FairyWay.Editor
             PlatformUtils.SwitchMainScene();
             SetGameFrameworkData();
             // SetSymbol();
-            // BindScript();
+            BindScript();
+            //  也没有使用。
             // CriFileSystemHelper.BuildCpk();
+
+            // 热更部分生成。
             // var errorMsg = HotfixHelper.BuildHotfixReleaseDll();
             // if (!string.IsNullOrEmpty(errorMsg))
             // {
@@ -209,11 +220,11 @@ namespace FairyWay.Editor
             //     throw new Exception("Build dll failed");
             // }
 
-            // AssetDatabase.Refresh();
-            // if (!BuildResourceRule())
-            // {
-            //     throw new Exception("Build resource failed");
-            // }
+            AssetDatabase.Refresh();
+            if (!BuildResourceRule())
+            {
+                throw new Exception("Build resource failed");
+            }
 
             // BuildAssetBundlesByResourceBuilder();
             // if (buildAb)
@@ -222,8 +233,11 @@ namespace FairyWay.Editor
             //     return;
             // }
 
+
+
             // BuildGame(path, isBat);
         }
+
 
         // 从场景中获取到服务器相关的信息。
         private void InitGameFrameworkData()
@@ -251,6 +265,65 @@ namespace FairyWay.Editor
             // EditorUtility.SetDirty(resource);
             // EditorSceneManager.SaveScene(scene);
         }
+
+
+        // 热更域的更新。
+        private void BindScript()
+        {
+            var path = "Assets/GameMain/Scripts/Main/Custom/ILRuntime/Generated";
+            //用新的分析热更dll调用引用来生成绑定代码
+            // var appDomain = new ILRuntime.Runtime.Enviorment.AppDomain();
+            // using (var fs = new FileStream(AssetUtility.GetHotfixDLLEditorAsset(), FileMode.Open, FileAccess.Read))
+            // {
+            //     appDomain.LoadAssembly(fs);
+
+            //     //这里需要注册所有热更DLL中用到的跨域继承Adapter，否则无法正确抓取引用
+            //     ILRuntimeHelper.RegisterCrossBindingAdaptor(appDomain);
+            //     ILRuntimeHelper.RegisterValueTypeBinder(appDomain);
+            //     ILRuntime.Runtime.CLRBinding.BindingCodeGenerator.GenerateBindingCode(appDomain, path);
+            // }
+
+            // AssetDatabase.Refresh();
+        }
+
+
+        // private void CollectFailureData(string msg)
+        // {
+        //     m_FailureData = string.IsNullOrEmpty(m_FailureData) ? msg : $"{m_FailureData} {msg} ";
+        // }
+
+
+        private bool BuildResourceRule()
+        {
+            // var resourceRuleEditor = CreateInstance<ResourceRuleEditor>();
+            // m_FailureData = string.Empty;
+            // resourceRuleEditor.RefreshResourceCollectionEditor(CollectFailureData);
+            // WriteFailureData();
+            // if (!string.IsNullOrEmpty(m_FailureData))
+            // {
+            //     return false;
+            // }
+
+            // resourceRuleEditor.Save();
+            // DestroyImmediate(resourceRuleEditor);
+            return true;
+        }
+
+        [Button("打资源包", ButtonSizes.Gigantic)]
+        public void BuildAssetBundlesByResourceBuilder()
+        {
+            if (ResourceBuilderHelper.BuildAssetBundles(SelectPlatform, ResourceMode))
+            {
+                Debug.Log("打包完成");
+            }
+            else
+            {
+                throw new Exception("ab包打包失败，检查配置");
+            }
+        }
+
+
+
 
 
     }

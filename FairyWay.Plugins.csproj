@@ -1021,20 +1021,24 @@
     <Reference Include="mscorlib">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.5f1c1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="ILRuntime">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/ILRuntime.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-        <HintPath>/Users/kimi/UnityProject/Kimi/FairyWay/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.Timeline.csproj">
+      <Project>{c6787257-ab1c-443f-b35c-a0b48afe6c06}</Project>
+      <Name>Unity.Timeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="ILRuntime.csproj">
+      <Project>{d09ce66b-dbcb-8039-7cbe-609f74f65f39}</Project>
+      <Name>ILRuntime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{b34b817e-e707-4ba9-363b-9a919a1d3fad}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{efe39cae-d9f3-dc71-0046-84a299bc1409}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
