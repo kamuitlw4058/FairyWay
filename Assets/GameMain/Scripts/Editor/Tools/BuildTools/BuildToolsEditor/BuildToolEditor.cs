@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using FairyWay.Editor.ResourceTools;
 using FairyWay.Main;
 using GameFramework.Resource;
 using Sirenix.OdinInspector;
@@ -43,7 +44,7 @@ namespace FairyWay.Editor
 
 
 
-        [MenuItem("FallenWing/打包汇总", false, 6)]
+        [MenuItem("FallenWing/BuildTools/打包汇总", false, 6)]
         public static void ShowWindow()
         {
             if (SceneManager.GetActiveScene().name != "Client" && !EditorUtility.DisplayDialog("提示", "将要打开SteamClient场景", "确定", "取消"))
@@ -59,9 +60,6 @@ namespace FairyWay.Editor
             window.SelectPlatform = window.GetCurrentPlatform();
             window.InitGameFrameworkData();
         }
-
-
-
 
 
         public ValueDropdownList<Platform> GetAllSupportPlatform()
@@ -235,21 +233,21 @@ namespace FairyWay.Editor
 
 
 
-            // BuildGame(path, isBat);
+            BuildGame(path, isBat);
         }
 
 
         // 从场景中获取到服务器相关的信息。
         private void InitGameFrameworkData()
         {
-            // var scene = SceneManager.GetActiveScene();
-            // var gameEntry = scene.GetRootGameObjects().ToList().Find(g => g.name == "GameEntry");
+            var scene = SceneManager.GetActiveScene();
+            var gameEntry = scene.GetRootGameObjects().ToList().Find(g => g.name == "GFEntry");
             // var builtinData = gameEntry.transform.Find("Customs/BuiltinData").GetComponent<BuiltinDataComponent>();
-            // var resource = gameEntry.transform.Find("GameFramework/Resource").GetComponent<ResourceComponent>();
+            var resource = gameEntry.transform.Find("GameFramework/Resource").GetComponent<ResourceComponent>();
             // ServerURL = builtinData.ServerUrl;
             // ServerPlatform = builtinData.BuiltinPlatform;
             // BuildWith37 = HasSymbolInPlatform(SelectPlatform, SYMBOL_ANDROID_37);
-            // ResourceMode = resource.m_ResourceMode;
+            ResourceMode = resource.m_ResourceMode;
         }
 
         // 设置服务器相关信息并保存。
@@ -295,17 +293,17 @@ namespace FairyWay.Editor
 
         private bool BuildResourceRule()
         {
-            // var resourceRuleEditor = CreateInstance<ResourceRuleEditor>();
+            var resourceRuleEditor = CreateInstance<ResourceRuleEditor>();
             // m_FailureData = string.Empty;
-            // resourceRuleEditor.RefreshResourceCollectionEditor(CollectFailureData);
+            resourceRuleEditor.RefreshResourceCollection();
             // WriteFailureData();
             // if (!string.IsNullOrEmpty(m_FailureData))
             // {
             //     return false;
             // }
 
-            // resourceRuleEditor.Save();
-            // DestroyImmediate(resourceRuleEditor);
+            resourceRuleEditor.Save();
+            DestroyImmediate(resourceRuleEditor);
             return true;
         }
 
@@ -323,7 +321,60 @@ namespace FairyWay.Editor
         }
 
 
+        private void BuildGame(string path, bool isBat = false)
+        {
+            var targetGroup = BuildTargetGroup.Unknown;
+            switch (SelectPlatform)
+            {
+                case Platform.Android:
+                    // PlayerSettings.keystorePass = m_BuildKeystorePassword;
+                    // PlayerSettings.keyaliasPass = m_BuildKeystorePassword;
+                    targetGroup = BuildTargetGroup.Android;
+                    break;
+                case Platform.Windows64:
+                    targetGroup = BuildTargetGroup.Standalone;
+                    break;
+                case Platform.IOS:
+                    targetGroup = BuildTargetGroup.iOS;
+                    break;
+            }
 
+            var option = GetBuildPlayerOptionsFromGameConfig(targetGroup);
+            option.locationPathName = path;
+            try
+            {
+                BuildPipeline.BuildPlayer(option);
+            }
+            catch
+            {
+                Debug.LogError("生成游戏包出错");
+                return;
+            }
+
+            // if (!isBat)
+            // {
+            //     var dirPath = Path.GetDirectoryName(path);
+            //     if (!string.IsNullOrEmpty(dirPath))
+            //     {
+            //         var proc = new Process { StartInfo = { FileName = dirPath } };
+            //         proc.Start();
+            //     }
+            // }
+            // else
+            // {
+            //     WriteApkInfo();
+            // }
+
+            // UpdateBuildVersion();
+        }
+
+
+        UnityEditor.BuildPlayerOptions GetBuildPlayerOptionsFromGameConfig(BuildTargetGroup targetGroup)
+        {
+            return AssetDatabase.FindAssets("t:BuildPlayerOptionsOverview")
+                .Select(guid => AssetDatabase.LoadAssetAtPath<BuildPlayerOptionsOverview>(AssetDatabase.GUIDToAssetPath(guid))).ToList()[0]
+                .GetBuildPlayerOptions(targetGroup);
+        }
 
 
     }

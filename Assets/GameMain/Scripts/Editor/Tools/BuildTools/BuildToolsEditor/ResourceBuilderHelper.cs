@@ -5,6 +5,7 @@ using GameFramework.Resource;
 using Sirenix.Utilities;
 using UnityEngine;
 using UnityGameFramework.Editor.ResourceTools;
+using UnityGameFramework.Runtime;
 
 namespace FairyWay.Editor
 {
@@ -13,8 +14,21 @@ namespace FairyWay.Editor
         public static bool BuildAssetBundles(Platform platform, ResourceMode resourceMode)
         {
             var controller = new ResourceBuilderController();
-            if (!controller.Load() || controller.OutputDirectory == null || !Directory.Exists(controller.OutputDirectory))
+            if (!controller.Load())
             {
+                Log.Info($"Controller Load Failed!!");
+                return false;
+            }
+
+            if (controller.OutputDirectory == null)
+            {
+                Log.Info($"Controller OutputDirectory is null.");
+                return false;
+            }
+
+            if (!Directory.Exists(controller.OutputDirectory))
+            {
+                Log.Info($"Controller OutputDirectory is not Exists.");
                 return false;
             }
 
@@ -41,6 +55,7 @@ namespace FairyWay.Editor
             }
             else
             {
+                Log.Info($"Controller BuildResources Failed!");
                 return false;
             }
 

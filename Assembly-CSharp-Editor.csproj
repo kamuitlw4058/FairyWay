@@ -36,10 +36,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/ResourceBuilderHelper.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/BuildToolsEditor/ResourceBuilderHelper.cs" />
      <Compile Include="Assets/GameMain/Scripts/Editor/Constant/CommonConstant.cs" />
-     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/BuildToolEditor.cs" />
      <Compile Include="Assets/GameMain/Scripts/Editor/Utils/PlatformUtils.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/ResourceRuleEditor/ResourceRuleEditor.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/ResourceRuleEditor/ResourceRuleEditorData.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/BuildToolsEditor/BuildToolEditor.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/BuildToolsEditor/BuildPlayerOptionsHelper.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.5f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
