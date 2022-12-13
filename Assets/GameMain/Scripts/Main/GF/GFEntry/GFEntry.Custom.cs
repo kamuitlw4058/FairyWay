@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     /// <summary>
     /// 游戏入口。
@@ -11,14 +11,15 @@ namespace FairyWay.Main
     public partial class GFEntry : MonoBehaviour
     {
         public static AdaptationComponent Adaptation { get; private set; }
-        #if STEAM_CLIENT
+        public static ILRuntimeComponent ILRuntime { get; private set; }
+#if STEAM_CLIENT
         public static BuiltinDataComponent BuiltinData { get; private set; }
 
        
 
         public static QualityComponent Quality { get; private set; }
 
-        public static ILRuntimeComponent ILRuntime { get; private set; }
+       
 
         public static GameConfigComponent GameConfig { get; private set; }
 
@@ -50,14 +51,14 @@ namespace FairyWay.Main
         public static Dictionary<int, string> PropIDToIcon { get; set; }
         
         public static IdIndex clientGeneric = new IdIndex();
-        #endif
+#endif
         /*public static List<MainCityBuildClass> buildClassList = new List<MainCityBuildClass>();
         public static List<MainCityBuildClass> BuildClassList{ get { return buildClassList; }set{BuildClassList = value;}}*/
 
         private static void InitCustomComponents()
         {
             Adaptation = UnityGameFramework.Runtime.GameEntry.GetComponent<AdaptationComponent>();
-            #if STEAM_CLIENT
+#if STEAM_CLIENT
             BuiltinData = UnityGameFramework.Runtime.GameEntry.GetComponent<BuiltinDataComponent>();
             Quality = UnityGameFramework.Runtime.GameEntry.GetComponent<QualityComponent>();
             ILRuntime = UnityGameFramework.Runtime.GameEntry.GetComponent<ILRuntimeComponent>();
@@ -76,7 +77,7 @@ namespace FairyWay.Main
             Sdk = UnityGameFramework.Runtime.GameEntry.GetComponent<SdkComponent>();
             MainCity = UnityGameFramework.Runtime.GameEntry.GetComponent<MainCityComponent>();
             Chapter = UnityGameFramework.Runtime.GameEntry.GetComponent<ChapterComponent>();
-            #endif
+#endif
         }
     }
 }

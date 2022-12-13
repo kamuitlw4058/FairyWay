@@ -2,13 +2,16 @@ using System;
 using ILRuntime.CLR.Method;
 using ILRuntime.Runtime.Enviorment;
 using ILRuntime.Runtime.Intepreter;
+#if DEBUG && !DISABLE_ILRUNTIME_DEBUG
+using AutoList = System.Collections.Generic.List<object>;
+#else
+using AutoList = ILRuntime.Other.UncheckedList<object>;
+#endif
 
-namespace SteamClient
+namespace FairyWay
 {   
     public class GameEventArgsAdapter : CrossBindingAdaptor
     {
-        static CrossBindingFunctionInfo<System.Int32> mget_Id_0 = new CrossBindingFunctionInfo<System.Int32>("get_Id");
-        static CrossBindingMethodInfo mClear_1 = new CrossBindingMethodInfo("Clear");
         public override Type BaseCLRType
         {
             get
@@ -32,6 +35,10 @@ namespace SteamClient
 
         public class Adapter : GameFramework.Event.GameEventArgs, CrossBindingAdaptorType
         {
+            CrossBindingFunctionInfo<System.Int32> mget_Id_0 = new CrossBindingFunctionInfo<System.Int32>("get_Id");
+            CrossBindingMethodInfo mClear_1 = new CrossBindingMethodInfo("Clear");
+
+            bool isInvokingToString;
             ILTypeInstance instance;
             ILRuntime.Runtime.Enviorment.AppDomain appdomain;
 
@@ -68,7 +75,15 @@ namespace SteamClient
                 m = instance.Type.GetVirtualMethod(m);
                 if (m == null || m is ILMethod)
                 {
-                    return instance.ToString();
+                    if (!isInvokingToString)
+                    {
+                        isInvokingToString = true;
+                        string res = instance.ToString();
+                        isInvokingToString = false;
+                        return res;
+                    }
+                    else
+                        return instance.Type.FullName;
                 }
                 else
                     return instance.Type.FullName;

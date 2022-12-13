@@ -1,9 +1,9 @@
-using FairyGUI;
 using System;
+using FairyGUI;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     /// <summary> 屏幕适配组件，负责对各种分辨率下需要进行调整尺寸的相机/Canvas等进行适配处理 </summary>
     public class AdaptationComponent : GameFrameworkComponent

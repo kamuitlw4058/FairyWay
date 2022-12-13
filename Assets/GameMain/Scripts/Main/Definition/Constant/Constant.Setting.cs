@@ -1,4 +1,4 @@
-namespace FairyWay.Main
+namespace FairyWay
 {
     public static partial class Constant
     {

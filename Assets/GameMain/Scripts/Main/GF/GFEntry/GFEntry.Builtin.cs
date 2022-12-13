@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityGameFramework.Runtime;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     /// <summary>
     /// 游戏入口。

@@ -62,6 +62,7 @@
      <Compile Include="Assets/GameMain/Scripts/Main/GF/GFCustom/Adaptation/AdaptationComponent.cs" />
      <Compile Include="Assets/GameMain/Scripts/Main/GF/GFCustom/ILRuntime/ValueBinder/Vector2Binder.cs" />
      <Compile Include="Assets/GameMain/Scripts/Main/GF/GFCustom/ILRuntime/Adapter/GameFramework.Event.GameEventArgsAdapter.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Main/GF/GFCustom/ILRuntime/Generated/CLRBindings.cs" />
      <None Include="Assets/GameMain/Scripts/Main/FairyWay.asmdef" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.5f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

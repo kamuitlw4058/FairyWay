@@ -1,15 +1,15 @@
 using System;
+using System.IO;
 using GameFramework;
 using GameFramework.Event;
 using GameFramework.Resource;
-using System.IO;
 // using LitJson;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 using Version = GameFramework.Version;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     public class ProcedureCheckVersion : ProcedureBase
     {
@@ -20,16 +20,16 @@ namespace FairyWay.Main
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
-            #if STEAM_CLIENT
+#if STEAM_CLIENT
             //设置下载Version List回调
             m_UpdateVersionListCallbacks = new UpdateVersionListCallbacks(OnUpdateVersionListSuccess, OnUpdateVersionListFailure);
-            #endif
+#endif
         }
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
-        #if STEAM_CLIENT
+#if STEAM_CLIENT
             m_LatestVersionComplete = false;
             m_VersionInfo = null;
             
@@ -38,22 +38,22 @@ namespace FairyWay.Main
             
             RequestVersion();
 
-            #endif
+#endif
         }
-        
+
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
-            #if STEAM_CLIENT
+#if STEAM_CLIENT
             GameEntry.Event.Unsubscribe(WebRequestSuccessEventArgs.EventId, OnWebRequestSuccess);
             GameEntry.Event.Unsubscribe(WebRequestFailureEventArgs.EventId, OnWebRequestFailure);
 
             base.OnLeave(procedureOwner, isShutdown);
-            #endif
+#endif
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
-            #if STEAM_CLIENT
+#if STEAM_CLIENT
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
             if (!m_LatestVersionComplete)
@@ -63,25 +63,25 @@ namespace FairyWay.Main
 
             
             ChangeState<ProcedureUpdateResource>(procedureOwner);
-            #endif
+#endif
         }
 
         private void RequestVersion()
         {
-            #if STEAM_CLIENT
+#if STEAM_CLIENT
             //根据服务器下发的
             资源版本地址和自身系统决定获取versionList的路径
             //TODO:可能修改成php下发等，因此后缀最好也由服务器下发而非写死
             var versionListUrl = Utility.Path.GetRegularPath(Path.Combine(GameEntry.ServerData.ResUrl, GetPlatformPath(), "version.json"));
             
             GameEntry.WebRequest.AddWebRequest(versionListUrl, this);
-            #endif
+#endif
         }
 
         /// <summary> 检查Version List </summary>
         private void UpdateVersion()
         {
-            #if STEAM_CLIENT
+#if STEAM_CLIENT
             //使用服务器端的最新资源版本号和本地进行比对
             if (GameEntry.Resource.CheckVersionList(m_VersionInfo.InternalResourceVersion) == CheckVersionListResult.Updated)
             {
@@ -97,9 +97,9 @@ namespace FairyWay.Main
                     m_VersionInfo.VersionListZipLength, m_VersionInfo.VersionListZipHashCode,
                     m_UpdateVersionListCallbacks);
             }
-            #endif
+#endif
         }
-        #if STEAM_CLIENT
+#if STEAM_CLIENT
         private void OnWebRequestSuccess(object sender, GameEventArgs e)
         {
             
@@ -179,6 +179,6 @@ namespace FairyWay.Main
                     return "Windows64";
             }
         }
-        #endif
+#endif
     }
 }

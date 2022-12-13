@@ -3,8 +3,8 @@ using ILRuntime.CLR.Method;
 using ILRuntime.Runtime.Enviorment;
 using ILRuntime.Runtime.Intepreter;
 
-namespace SteamClient
-{   
+namespace FairyWay
+{
     public class ObjectBaseAdapter : CrossBindingAdaptor
     {
         static CrossBindingFunctionInfo<System.Boolean> mget_CustomCanReleaseFlag_0 = new CrossBindingFunctionInfo<System.Boolean>("get_CustomCanReleaseFlag");

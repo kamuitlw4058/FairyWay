@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     /// <summary>
     /// 游戏入口。

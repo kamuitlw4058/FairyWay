@@ -5,30 +5,30 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using GameFramework.Resource;
-using UnityEngine;
 using ILRuntime.CLR.Method;
 using ILRuntime.CLR.TypeSystem;
 using ILRuntime.Mono.Cecil.Pdb;
 using Sirenix.OdinInspector;
+using UnityEngine;
 using UnityGameFramework.Runtime;
 using AppDomain = ILRuntime.Runtime.Enviorment.AppDomain;
 
-namespace SteamClient
+namespace FairyWay
 {
     /// <summary> ILRuntime组件，负责启动热更工程，维护其生命周期以及提供热更工程一些ILR相关函数。并提供了切换为反射执行版本的功能 </summary>
     public class ILRuntimeComponent : GameFrameworkComponent
     {
         [NonSerialized]
         public bool IsHotfixStart;
-        
-        private const string TYPE_FULL_NAME = "SteamClient.Hotfix.GameBridge";
-        
+
+        private const string TYPE_FULL_NAME = "FairyWay.Hotfix.GameBridge";
+
         private object m_GameBridgeInstance;
         public IType ILRuntimeBridge;
         private IMethod m_Start;
         private IMethod m_Update;
         private IMethod m_Shutdown;
-        
+
         private FileStream m_FsDLL;
         private FileStream m_FsPDB;
 
@@ -52,14 +52,14 @@ namespace SteamClient
                 PlayerPrefs.SetInt(IS_REFLECTION, 0);
             else
                 PlayerPrefs.SetInt(IS_REFLECTION, DateTime.Now.DayOfYear);
-            
+
             PlayerPrefs.Save();
         }
         private static string ButtonText => (CheckReflection ? "当前是反射执行（调试）" : "当前是解释执行") +
                                             "\n\n正常开发时应使用ILRuntime解释执行，当需要调试时可以切换为反射执行。\n" +
                                             "当需要调试仅在ILR环境才会出现的问题时，应使用解释执行并使用VS下的ILR调试插件。\n" +
                                             "为了保证开发环境和真实运行环境的一致，在调试完成后应立即切回解释执行模式。\n" +
-                                            "即使你忘记切换，也会在第二天自动切回解释执行模式。\n\n" + 
+                                            "即使你忘记切换，也会在第二天自动切回解释执行模式。\n\n" +
                                             (CheckReflection ? "点击切换为解释执行" : "点击切换为反射执行（调试）");
 #endif
         private static bool CheckReflection => PlayerPrefs.GetInt(IS_REFLECTION, 0) == DateTime.Now.DayOfYear;
@@ -83,7 +83,7 @@ namespace SteamClient
         {
             if (IsReflection)
             {
-                m_RUpdate?.Invoke(m_GameBridgeInstance, new object[] {Time.deltaTime, Time.unscaledDeltaTime});
+                m_RUpdate?.Invoke(m_GameBridgeInstance, new object[] { Time.deltaTime, Time.unscaledDeltaTime });
             }
             else
             {
@@ -104,7 +104,7 @@ namespace SteamClient
         private void OnDestroy()
         {
             IsHotfixStart = false;
-            
+
             if (IsReflection)
             {
                 m_RShutdown?.Invoke(m_GameBridgeInstance, null);
@@ -119,7 +119,7 @@ namespace SteamClient
                         ctx.Invoke();
                     }
                 }
-            
+
                 if (m_FsDLL != null)
                 {
                     m_FsDLL.Close();
@@ -148,9 +148,8 @@ namespace SteamClient
         /// <summary> 加载热更新DLL </summary>
         public void LoadHotfixDLL()
         {
-            #if STEAM_CLIENT
             AppDomain = new AppDomain();
-            
+
             if (IsReflection)
             {
                 //反射执行
@@ -175,10 +174,10 @@ namespace SteamClient
 
                 //启动调试服务器
                 AppDomain.DebugService.StartDebugService(56000);
-                
+
                 //设置Unity主线程ID 这样就可以用Profiler看性能消耗了
                 AppDomain.UnityMainThreadID = System.Threading.Thread.CurrentThread.ManagedThreadId;
-                
+
                 ILRuntimeHelper.InitILRuntime(AppDomain);
 
                 HotfixStart();
@@ -202,14 +201,13 @@ namespace SteamClient
                     }));
 #endif
             }
-            #endif
         }
 
         /// <summary> 开始执行热更新层代码 </summary>
         private void HotfixStart()
         {
             IsHotfixStart = true;
-            
+
             if (IsReflection)
             {
                 ReflectionBridge = ReflectionAssembly.GetType(TYPE_FULL_NAME);
@@ -224,12 +222,12 @@ namespace SteamClient
             else
             {
                 ILRuntimeBridge = AppDomain.LoadedTypes[TYPE_FULL_NAME];
-            
-                m_GameBridgeInstance = ((ILType) ILRuntimeBridge).Instantiate();
+
+                m_GameBridgeInstance = ((ILType)ILRuntimeBridge).Instantiate();
                 m_Start = ILRuntimeBridge.GetMethod("Start", 0);
                 m_Update = ILRuntimeBridge.GetMethod("Update", 2);
                 m_Shutdown = ILRuntimeBridge.GetMethod("Shutdown", 0);
-            
+
                 using (var ctx = AppDomain.BeginInvoke(m_Start))
                 {
                     ctx.PushObject(m_GameBridgeInstance);

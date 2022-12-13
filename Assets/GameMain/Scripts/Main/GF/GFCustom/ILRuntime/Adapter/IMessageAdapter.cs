@@ -7,7 +7,7 @@ using ILRuntime.Runtime.Intepreter;
 using AppDomain = ILRuntime.Runtime.Enviorment.AppDomain;
 
 
-namespace SteamClient
+namespace FairyWay
 {
     public class IMessageAdapter : CrossBindingAdaptor
     {
@@ -55,7 +55,7 @@ namespace SteamClient
 
             public int CalculateSize()
             {
-                return (int) Invoke(2);
+                return (int)Invoke(2);
             }
         }
     }

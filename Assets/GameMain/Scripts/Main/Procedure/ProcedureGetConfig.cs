@@ -9,7 +9,7 @@ using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 using Version = GameFramework.Version;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     public class ProcedureGetConfig : ProcedureBase
     {
@@ -47,9 +47,9 @@ namespace FairyWay.Main
 
             //编辑器资源模式下跳过检查版本和更新资源流程
             //不更新模式下跳过检查更新流程，直接初始化资源
-            if(GFEntry.Base.EditorResourceMode)
+            if (GFEntry.Base.EditorResourceMode)
                 ChangeState<ProcedureILRuntime>(procedureOwner);
-            else if(GFEntry.Resource.ResourceMode == ResourceMode.Package)
+            else if (GFEntry.Resource.ResourceMode == ResourceMode.Package)
             {
                 Log.Warning("本包是不可更新测试包！");
                 GFEntry.Resource.InitResources(() => { ChangeState<ProcedureILRuntime>(procedureOwner); });
@@ -61,7 +61,7 @@ namespace FairyWay.Main
         /// <summary> web请求获取版本和平台配置 </summary>
         private void GetServerConfig()
         {
-        
+
             string deviceId = SystemInfo.deviceUniqueIdentifier;
             string deviceName = SystemInfo.deviceName;
             string deviceModel = SystemInfo.deviceModel;
@@ -115,7 +115,7 @@ namespace FairyWay.Main
             wwwForm.AddField("screen_orientation", screenOrientation);
             wwwForm.AddField("screen_resolution", screenResolution);
             wwwForm.AddField("use_wifi", useWifi);
-             m_GetConfigComplete = true;
+            m_GetConfigComplete = true;
 
             // Log.Info("获取平台配置 Request: " + GFEntry.BuiltinData.GetConfigUrl);
             // GFEntry.WebRequest.AddWebRequest(GFEntry.BuiltinData.GetConfigUrl, wwwForm, this);
@@ -133,7 +133,7 @@ namespace FairyWay.Main
         //     {
         //         var responseJson = Utility.Converter.GetString(ne.GetWebResponseBytes());
         //         Log.Info("获取平台配置 Response: " + responseJson);
-            
+
         //         var serverConfigInfo = JsonMapper.ToObject<ServerConfigInfo>(responseJson);
         //         if (serverConfigInfo == null || serverConfigInfo.Status == false)
         //         {

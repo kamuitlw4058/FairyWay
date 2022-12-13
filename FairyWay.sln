@@ -81,6 +81,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core.Configu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Subsystem.Registration", "Unity.Subsystem.Registration.csproj", "{230abc5c-0d71-8855-58a0-66d41b0d8d18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FairyWay.Hotfix", "FairyWay.Hotfix.csproj", "{eca19272-4c2c-3df9-52f6-9a66fa7a4cc5}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlasticSCM.Editor", "Unity.PlasticSCM.Editor.csproj", "{ef6dc12e-5931-9e45-7f01-328c7181f6ea}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VisualScripting.Core.Editor", "Unity.VisualScripting.Core.Editor.csproj", "{cc1bbc12-1140-3825-ea83-e3ca244827c6}"
@@ -266,6 +268,8 @@ Global
 		{ab05ac44-c437-fc03-3ef0-e85174042922}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{230abc5c-0d71-8855-58a0-66d41b0d8d18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{230abc5c-0d71-8855-58a0-66d41b0d8d18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{eca19272-4c2c-3df9-52f6-9a66fa7a4cc5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{eca19272-4c2c-3df9-52f6-9a66fa7a4cc5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ef6dc12e-5931-9e45-7f01-328c7181f6ea}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ef6dc12e-5931-9e45-7f01-328c7181f6ea}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{cc1bbc12-1140-3825-ea83-e3ca244827c6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

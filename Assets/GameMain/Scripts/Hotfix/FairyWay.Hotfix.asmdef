@@ -1,0 +1,19 @@
+{
+    "name": "FairyWay.Hotfix",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b01741ad250750f459e16f43b855c026",
+        "GUID:a1e0a24eb1a57974da9228a15e6d742c",
+        "GUID:99a1644ff461dfb46b4e42e62991f370",
+        "GUID:363c5eb08ff8e6a439b85e37b8c20d96"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,9 +1,9 @@
 ﻿using System;
+using ILRuntime.CLR.Method;
 using ILRuntime.Runtime.Enviorment;
 using ILRuntime.Runtime.Intepreter;
-using ILRuntime.CLR.Method;
 
-namespace SteamClient
+namespace FairyWay
 {
     public class IAsyncStateMachineAdapter : CrossBindingAdaptor
     {

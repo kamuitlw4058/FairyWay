@@ -1,7 +1,7 @@
 ﻿using Com.LuisPedroFonseca.ProCamera2D;
 using UnityEngine;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     /// <summary>
     /// 适配ProCamera2D相机
@@ -12,10 +12,10 @@ namespace FairyWay.Main
         protected override void Start()
         {
             base.Start(); //必须要调用父类的方法注册 //获取到相机组件
-    
+
             OnScreenResize();
         }
-    
+
         /// <summary>
         /// 具体的实现逻辑
         /// </summary>

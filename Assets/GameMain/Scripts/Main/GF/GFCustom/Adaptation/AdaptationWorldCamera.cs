@@ -1,7 +1,7 @@
 ﻿using Com.LuisPedroFonseca.ProCamera2D;
 using UnityEngine;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     /// <summary>
     /// 适配世界地图相机
@@ -12,14 +12,14 @@ namespace FairyWay.Main
         private Camera m_Camera;
 
         private float m_DefaultPositionZ = -4.3f;
-        
+
         protected override void Start()
         {
             base.Start(); //必须要调用父类的方法注册 //获取到相机组件
 
             m_Camera = GetComponent<Camera>();
         }
-    
+
         /// <summary>
         /// 具体的实现逻辑
         /// </summary>

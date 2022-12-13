@@ -45,6 +45,8 @@
      <Compile Include="Assets/GameMain/Scripts/Editor/Tools/BuildTools/ResourceRuleEditor/ResourceRuleEditorData.cs" />
      <Compile Include="Assets/GameMain/Scripts/Editor/Constant/CommonConstant.cs" />
      <Compile Include="Assets/GameMain/Scripts/Editor/Utils/PlatformUtils.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/ILRuntime/ILRuntimeCLRBinding.cs" />
+     <Compile Include="Assets/GameMain/Scripts/Editor/Tools/ILRuntime/ILRuntimeCrossBinding.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2021.3.5f1c1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -1078,6 +1080,10 @@
     <ProjectReference Include="Unity.AdaptivePerformance.Samsung.Android.csproj">
       <Project>{3cb9d9b6-1bab-659e-49e5-3721a4dd56df}</Project>
       <Name>Unity.AdaptivePerformance.Samsung.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="FairyWay.Hotfix.csproj">
+      <Project>{eca19272-4c2c-3df9-52f6-9a66fa7a4cc5}</Project>
+      <Name>FairyWay.Hotfix</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

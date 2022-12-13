@@ -1,15 +1,15 @@
-﻿using GameFramework.Event;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using GameFramework;
+using GameFramework.Event;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 
-namespace FairyWay.Main
+namespace FairyWay
 {
     public class ProcedureUpdateResource : ProcedureBase
     {
-        #if STEAM_CLIENT
+#if STEAM_CLIENT
         private bool m_UpdateAllComplete;
         private int m_UpdateCount;
         private long m_UpdateTotalZipLength;
@@ -217,6 +217,6 @@ namespace FairyWay.Main
 
             public int Length { get; set; }
         }
-        #endif
+#endif
     }
 }
