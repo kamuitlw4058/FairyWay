@@ -108,8 +108,10 @@ namespace FairyWay.Editor
                     path = string.IsNullOrEmpty(selectDir) ? string.Empty : $"{selectDir}/{m_LastBuildName}/{PlayerSettings.productName}.exe";
                     break;
                 case Platform.IOS:
-                    selectDir = EditorUtility.SaveFolderPanel("生成XCode目录", folder, "");
-                    path = selectDir;
+                    // selectDir = EditorUtility.SaveFolderPanel("生成XCode目录", folder, "");
+                    path = EditorUtility.SaveFilePanel("生成XCode", folder, m_LastBuildName, "ios");
+                    // path = string.IsNullOrEmpty(selectDir) ? string.Empty : $"{selectDir}/{m_LastBuildName}/{PlayerSettings.productName}.exe";
+                    // path = selectDir;
                     break;
             }
 
@@ -179,14 +181,12 @@ namespace FairyWay.Editor
                 throw new Exception("Build resource failed");
             }
 
-            // BuildAssetBundlesByResourceBuilder();
+            BuildAssetBundlesByResourceBuilder();
             // if (buildAb)
             // {
             //     WriteAbInfo();
             //     return;
             // }
-
-
 
             BuildGame(path, isBat);
         }
