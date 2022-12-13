@@ -1,7 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <UnityGameFramework>
   <ResourceCollection>
-    <Resources />
-    <Assets />
+    <Resources>
+      <Resource Name="GameMain/StreamRes" LoadType="0" Packed="True" />
+    </Resources>
+    <Assets>
+      <Asset Guid="041aab7da93c741de9b3d84f1e35a6d1" ResourceName="GameMain/StreamRes" />
+      <Asset Guid="2dfa56b3314f24f8081bea68d09b2a7a" ResourceName="GameMain/StreamRes" />
+      <Asset Guid="5f468cdf1fbdf4492b4f5a95be7f7672" ResourceName="GameMain/StreamRes" />
+      <Asset Guid="7e131637f477948f4a8292d39d43099d" ResourceName="GameMain/StreamRes" />
+      <Asset Guid="e75c982d8fd8e41adbd354189b7d5696" ResourceName="GameMain/StreamRes" />
+    </Assets>
   </ResourceCollection>
 </UnityGameFramework>

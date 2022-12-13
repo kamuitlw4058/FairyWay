@@ -42,8 +42,6 @@ namespace FairyWay.Editor
         }
 
 
-
-
         [MenuItem("FallenWing/BuildTools/打包汇总", false, 6)]
         public static void ShowWindow()
         {
@@ -74,7 +72,7 @@ namespace FairyWay.Editor
         {
             var path = GetBuildPath();
             Debug.Log($"Build Path:{path}");
-            // BuildGamePackage(GetBuildPath());
+            BuildGamePackage(path);
         }
 
         private string GetBuildPath()
@@ -296,7 +294,7 @@ namespace FairyWay.Editor
                     break;
             }
 
-            var option = GetBuildPlayerOptionsFromGameConfig(targetGroup);
+            var option = BuildPlayerOptionsEditor.GetBuildPlayerOptionsFromGameConfig(targetGroup);
             option.locationPathName = path;
             try
             {
@@ -325,13 +323,6 @@ namespace FairyWay.Editor
             // UpdateBuildVersion();
         }
 
-
-        UnityEditor.BuildPlayerOptions GetBuildPlayerOptionsFromGameConfig(BuildTargetGroup targetGroup)
-        {
-            return AssetDatabase.FindAssets("t:BuildPlayerOptionsOverview")
-                .Select(guid => AssetDatabase.LoadAssetAtPath<BuildPlayerOptionsOverview>(AssetDatabase.GUIDToAssetPath(guid))).ToList()[0]
-                .GetBuildPlayerOptions(targetGroup);
-        }
 
 
     }
