@@ -57,7 +57,7 @@ namespace FairyWay.Editor
             window.position = GUIHelper.GetEditorWindowRect().AlignCenter(800, 700);
             window.titleContent = new GUIContent("打包面板");
             window.Show();
-            window.SelectPlatform = window.GetCurrentPlatform();
+            window.SelectPlatform = PlatformUtils.GetCurrentPlatform();
             window.InitGameFrameworkData();
         }
 
@@ -68,26 +68,6 @@ namespace FairyWay.Editor
         }
 
 
-
-
-        private Platform GetCurrentPlatform()
-        {
-            var platform = Platform.Windows64;
-            switch (EditorUserBuildSettings.activeBuildTarget)
-            {
-                case BuildTarget.Android:
-                    platform = Platform.Android;
-                    break;
-                case BuildTarget.StandaloneWindows64:
-                    platform = Platform.Windows64;
-                    break;
-                case BuildTarget.iOS:
-                    platform = Platform.IOS;
-                    break;
-            }
-
-            return platform;
-        }
 
         [Button("一键打包", ButtonSizes.Gigantic)]
         public void BuildAll()
@@ -166,29 +146,6 @@ namespace FairyWay.Editor
             m_LastBuildName = "Client" + m_LastBuildVersion + '_' + ServerPlatform + '_' + DateTime.Now.ToFileTime();
         }
 
-        private void SwitchPlatform()
-        {
-            if (SelectPlatform == GetCurrentPlatform())
-            {
-                return;
-            }
-
-            switch (SelectPlatform)
-            {
-                case Platform.Android:
-                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
-                    break;
-                case Platform.Windows64:
-                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows64);
-                    break;
-                case Platform.MacOS:
-                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
-                    break;
-                case Platform.IOS:
-                    EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.iOS, BuildTarget.iOS);
-                    break;
-            }
-        }
 
 
 
@@ -200,7 +157,7 @@ namespace FairyWay.Editor
             }
 
             // BindSpriteAtlasAndCancelOverride();
-            SwitchPlatform();
+            PlatformUtils.SwitchPlatform(SelectPlatform);
             PlatformUtils.SwitchMainScene();
             SetGameFrameworkData();
             // SetSymbol();

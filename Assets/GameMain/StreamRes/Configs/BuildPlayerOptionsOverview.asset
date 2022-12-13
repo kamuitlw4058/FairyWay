@@ -13,8 +13,25 @@ MonoBehaviour:
   m_Name: BuildPlayerOptionsOverview
   m_EditorClassIdentifier: Assembly-CSharp-Editor:FairyWay.Editor:BuildPlayerOptionsOverview
   AllPlayerOptions:
-  - Scenes: []
-    LocationPathName: 
+  - Scenes:
+    - Assets/GameMain/Scenes/Client.unity
+    LocationPathName: test
+    AssetBundleManifestPath: 
+    TargetGroup: 7
+    Target: 13
+    Options: 262144
+    ExtraScriptingDefines: []
+  - Scenes:
+    - Assets/GameMain/Scenes/Client.unity
+    LocationPathName: test
+    AssetBundleManifestPath: 
+    TargetGroup: 7
+    Target: 13
+    Options: 262144
+    ExtraScriptingDefines: []
+  - Scenes:
+    - Assets/GameMain/Scenes/Client.unity
+    LocationPathName: test
     AssetBundleManifestPath: 
     TargetGroup: 7
     Target: 13
