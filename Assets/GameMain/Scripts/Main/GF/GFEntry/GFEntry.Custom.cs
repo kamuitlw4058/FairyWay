@@ -58,10 +58,11 @@ namespace FairyWay
         private static void InitCustomComponents()
         {
             Adaptation = UnityGameFramework.Runtime.GameEntry.GetComponent<AdaptationComponent>();
+            ILRuntime = UnityGameFramework.Runtime.GameEntry.GetComponent<ILRuntimeComponent>();
 #if STEAM_CLIENT
             BuiltinData = UnityGameFramework.Runtime.GameEntry.GetComponent<BuiltinDataComponent>();
             Quality = UnityGameFramework.Runtime.GameEntry.GetComponent<QualityComponent>();
-            ILRuntime = UnityGameFramework.Runtime.GameEntry.GetComponent<ILRuntimeComponent>();
+            
             GameConfig = UnityGameFramework.Runtime.GameEntry.GetComponent<GameConfigComponent>();
             ServerData = UnityGameFramework.Runtime.GameEntry.GetComponent<ServerDataComponent>();
             Fight = UnityGameFramework.Runtime.GameEntry.GetComponent<FightComponent>();

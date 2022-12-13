@@ -29,6 +29,8 @@ namespace FairyWay
                 ChangeState<ProcedureGetConfig>(procedureOwner);
 
                 GRoot.inst.SetContentScaleFactor(Screen.width, Screen.height, ScreenMatchMode.MatchWidthOrHeight);
+#else
+            ChangeState<ProcedureILRuntime>(procedureOwner);
 #endif
         }
         private void InitDebugger()
